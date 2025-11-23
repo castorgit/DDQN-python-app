@@ -1,0 +1,18 @@
+env_name: CartPole-v1
+episodes: 1000
+max_steps: 200
+AVG_CALC: 40                          # Episodes used to compute stopping average
+batch_size: 64
+hidden_sizes: [128, 128]
+lr: 0.00075
+gamma: 0.99
+replay_capacity: 20000
+learn_start: 500
+train_frequency: 1
+train_iterations: 8
+target_update: 500
+soft_tau: 0.01
+# Notes:
+# - Designed for CartPole-v1. Reasonable balance of capacity and learning rate.
+# - `learn_start` is 500 steps so training begins after enough samples are collected.
+# - `train_iterations` set to 8 to perform multiple SGD steps per training opportunity.

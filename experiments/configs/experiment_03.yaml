@@ -1,0 +1,19 @@
+env_name: LunarLander-v3
+env_threshold: 200                     # Considered solved
+seed: 42                               # Reproducibility seed
+episodes: 5000
+max_steps: 1200
+AVG_CALC: 40                           # Episodes used to compute stopping average
+batch_size: 64                         # Larger batch → smoother learning
+hidden_sizes: [128, 128]               # Network size 
+lr: 0.0004                             # Standard for DQN/DDQN in continuous physics envs
+gamma: 0.99
+replay_capacity: 100000                # Larger buffer helps stability
+learn_start: 10000                     # Avoid learning too early
+train_frequency: 5                     # Learn every 4 steps
+train_iterations: 1                    # SB3 uses 1; more can destabilize DDQN
+n_step: 1                              # Use 1-step returns by default
+target_update: 1000                    # Hard update frequency (good baseline)
+soft_tau: 0.005                        # Keep but unused unless soft update enabled
+enable_soft_update: True
+# Notes : Lunar Lander hyperparameters

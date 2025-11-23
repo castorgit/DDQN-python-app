@@ -1,0 +1,25 @@
+env_name: CartPole-v1
+episodes: 500
+max_steps: 1000
+AVG_CALC: 40                          # Episodes used to compute stopping average
+# Moderate batch size with more training iterations encourages faster learning
+batch_size: 64
+# Slightly larger network capacity to learn quickly
+hidden_sizes: [256, 128]
+# Reduced learning rate for stability while keeping reasonable speed
+lr: 0.0003
+gamma: 0.99
+# Larger replay buffer to reduce sample correlation and improve stability
+replay_capacity: 50000
+# Start learning after more experience to stabilize updates
+learn_start: 1000
+train_frequency: 1
+# Fewer gradient steps per step to avoid destructive overfitting
+train_iterations: 4
+# Less frequent target updates (more stable) and gentler soft updates
+target_update: 1000
+soft_tau: 0.005
+# Notes:
+# - This config aims to converge faster on CartPole-v1 by starting
+#   learning earlier, using more training iterations per step, and
+#   updating targets more frequently. It may be less stable on harder envs.

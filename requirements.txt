@@ -1,0 +1,7 @@
+numpy
+pytest
+gymnasium
+torch
+imageio[ffmpeg]
+pyyaml
+matplotlib
