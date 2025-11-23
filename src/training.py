@@ -149,15 +149,15 @@ def train(config: Dict[str, Any], logger):
         if len(rewards_window) > avg_calc:
             rewards_window.pop(0)
         avg_reward = sum(rewards_window) / len(rewards_window)
-        logger.write_log('training.log', f'Episode {ep} reward={ep_reward:.2f} avg{avg_calc}={avg_reward:.2f} steps={total_steps}')
-        print(f'Episode {ep}/{episodes} reward={ep_reward:.2f} avg{avg_calc}={avg_reward:.2f}')
+        logger.write_log('training.log', f'Episode {ep} reward={ep_reward:.2f} AVG-{avg_calc}={avg_reward:.2f} steps={total_steps}')
+        print(f'Episode {ep}/{episodes} reward={ep_reward:.2f} AVG-{avg_calc}={avg_reward:.2f}')
 
         if env_threshold is not None and len(rewards_window) == avg_calc and avg_reward >= env_threshold:
             # compute elapsed time and report
             elapsed_s = time.time() - start_time
             elapsed_min = elapsed_s / 60.0
             msg = (
-                f'Environment solved in {ep} episodes avg{avg_calc}={avg_reward:.2f} '
+                f'Environment solved in {ep} episodes AVG-{avg_calc}={avg_reward:.2f} '
                 f'threshold={env_threshold:.2f} Elapsed time: {elapsed_min:.2f} minutes '
                 f'(AVG_CALC={avg_calc})'
             )
